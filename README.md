@@ -290,26 +290,3 @@ PRs welcome! Here's the flow:
 Released under the **MIT License** — free to use, modify, and distribute.
 
 ---
-
-## 👋 About the Author
-
-<div align="center">
-
-### Vedant Kumar
-*Aspiring Data Analyst*
-
-[![Email](https://img.shields.io/badge/Email-vedantkumar0411@gmail.com-D14836?style=flat&logo=gmail&logoColor=white)](mailto:vedantkumar0411@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/vedant-kumar-909b2626a)
-[![GitHub](https://img.shields.io/badge/GitHub-VedantKumar2103-181717?style=flat&logo=github&logoColor=white)](https://github.com/VedantKumar2103)
-
-</div>
-
----
-
-<div align="center">
-
-### ⭐ If Hire Ready helped you land an interview, drop a star!
-
-*Built with ☕ and a lot of late-night debugging.*
-
-</div>
