@@ -1,0 +1,63 @@
+# Environment variables (NEVER commit API keys!)
+.env
+.env.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Uploaded resumes (user data — don't commit)
+uploads/
+user_resumes/
+*.pdf
+*.docx
+!sample_resume.pdf
+!templates/*.pdf
+
+# Generated outputs
+generated_resumes/
+output/
+reports/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (if any frontend tooling)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+
+# Build artifacts
+dist/
+build/
+*.egg

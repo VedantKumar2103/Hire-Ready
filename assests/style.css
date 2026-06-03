@@ -1,0 +1,538 @@
+/* ParseIQ V2.0 - Resume Intelligence System */
+/* Aesthetic: Bold editorial brutalism — cream base, black display type, yellow accents, purple highlights */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ─── CSS Variables ─────────────────────────────────────────── */
+:root {
+  --cream:    #FFFDF2;
+  --black:    #111111;
+  --yellow:   #F5C518;
+  --purple:   #6B4FBB;
+  --teal:     #0FA4AF;
+  --white:    #FFFFFF;
+  --gray:     #888888;
+  --card-bg:  #FFFFFF;
+  --dot-color: rgba(0,0,0,0.18);
+  --radius:   16px;
+  --shadow:   0 4px 24px rgba(0,0,0,0.12);
+}
+
+/* ─── Global Reset & Base ───────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+[data-testid="stAppViewContainer"],
+[data-testid="stApp"],
+.stApp,
+[data-testid="stMain"],
+[data-testid="stMainBlockContainer"],
+[data-testid="stBottomBlockContainer"],
+.main,
+.block-container {
+  background-color: #FFFDF2 !important;
+  background-image: radial-gradient(var(--dot-color) 1.2px, transparent 1.2px) !important;
+  background-size: 22px 22px !important;
+  color: var(--black) !important;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ─── Display / Hero Typography ────────────────────────────── */
+h1, .display-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 14vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  /* Yellow offset shadow — the signature effect */
+  text-shadow:
+    4px 4px 0px var(--yellow),
+    5px 5px 0px rgba(0,0,0,0.15);
+}
+
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: 0.01em;
+  color: var(--black);
+}
+
+h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* ─── Layout Wrapper ────────────────────────────────────────── */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ─── Header ────────────────────────────────────────────────── */
+.header {
+  background: transparent;
+  color: var(--black);
+  padding: 1.5rem 2rem;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .brand {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.header .brand span {
+  color: var(--gray);
+  margin-left: 0.4rem;
+}
+
+/* ─── Vertical Sidebar Label (rotated badge) ────────────────── */
+.sidebar-label,
+.top-right-circle {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: right center;
+  background: #C4A882;
+  color: var(--black);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px 8px 0 0;
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: none;
+  z-index: 1000;
+  /* override old circle styles */
+  display: block;
+  align-items: unset;
+  justify-content: unset;
+}
+
+/* ─── Card / Box ────────────────────────────────────────────── */
+.card, .box {
+  background: var(--card-bg);
+  color: var(--black);
+  padding: 1.5rem 1.75rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+  border: 2px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover, .box:hover {
+  transform: translateY(-4px) rotate(-0.5deg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border-color: var(--yellow);
+}
+
+/* Stacked feature cards (like in the screenshot) */
+.feature-card {
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  padding: 0.85rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--black);
+  margin-bottom: 0.6rem;
+  box-shadow: 3px 3px 0 var(--black);
+  cursor: default;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+.feature-card .icon {
+  color: var(--purple);
+  font-size: 1.2rem;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+.button, button {
+  background: var(--black);
+  color: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 8px;
+  padding: 0.65rem 1.4rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 3px 3px 0 var(--yellow);
+}
+
+.button:hover, button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--yellow);
+}
+
+.button.secondary {
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 3px 3px 0 var(--purple);
+}
+
+.button.secondary:hover {
+  box-shadow: 5px 5px 0 var(--purple);
+}
+
+/* ─── File Upload ───────────────────────────────────────────── */
+.file-upload {
+  border: 2.5px dashed var(--black);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  background-color: var(--white);
+  color: var(--black);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.file-upload:hover {
+  background-color: var(--yellow);
+  border-style: solid;
+  border-color: var(--black);
+}
+
+/* ─── Progress Bar ──────────────────────────────────────────── */
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1.5px solid var(--black);
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--black);
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+/* ─── Skill Tags ────────────────────────────────────────────── */
+.skill-tag {
+  background: var(--yellow);
+  color: var(--black);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  margin: 0.2rem;
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1.5px solid var(--black);
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  background: var(--purple);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 0 var(--black);
+}
+
+/* ─── Alerts ────────────────────────────────────────────────── */
+.alert-success {
+  background-color: #e8f8f0;
+  border-left: 4px solid #2ecc71;
+  color: var(--black);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-weight: 500;
+}
+
+.alert-warning {
+  background-color: #fef9e7;
+  border-left: 4px solid var(--yellow);
+  color: var(--black);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-weight: 500;
+}
+
+.alert-error {
+  background-color: #fdf0ef;
+  border-left: 4px solid #e74c3c;
+  color: var(--black);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-weight: 500;
+}
+
+/* ─── Select / Dropdown ─────────────────────────────────────── */
+.select-user {
+  background: var(--white);
+  color: var(--black);
+  border: 2px solid var(--black);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--black);
+}
+
+.select-user:focus {
+  outline: none;
+  box-shadow: 3px 3px 0 var(--yellow);
+}
+
+/* ─── Table ─────────────────────────────────────────────────── */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 2px solid var(--black);
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 4px 4px 0 var(--black);
+}
+
+.table th,
+.table td {
+  padding: 0.9rem 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.table th {
+  background-color: var(--black);
+  color: var(--white);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background: rgba(245, 197, 24, 0.1);
+}
+
+/* ─── Inputs & Textareas ────────────────────────────────────── */
+input, textarea {
+  border-radius: 8px;
+  color: var(--black);
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  padding: 0.75rem 1rem;
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  transition: box-shadow 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--gray);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 3px 3px 0 var(--yellow);
+}
+
+/* ─── Sidebar ───────────────────────────────────────────────── */
+.sidebar {
+  background: var(--white);
+  border-right: 2px solid var(--black);
+  padding: 1.5rem;
+  box-shadow: 4px 0 0 var(--black);
+  color: var(--black);
+  min-height: 100vh;
+}
+
+/* ─── Metric Cards ──────────────────────────────────────────── */
+.metric-card {
+  background: var(--white);
+  color: var(--black);
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--black);
+  box-shadow: 4px 4px 0 var(--black);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 var(--black);
+}
+
+.metric-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin: 0.5rem 0;
+  color: var(--black);
+  text-shadow: 2px 2px 0 var(--yellow);
+}
+
+/* ─── Video Container ───────────────────────────────────────── */
+.video-container {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 2px solid var(--black);
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+/* ─── Utility Classes ───────────────────────────────────────── */
+.text-muted   { color: var(--gray); font-size: 0.95rem; }
+.text-accent  { color: var(--purple); }
+.text-yellow  { color: var(--yellow); }
+.bg-yellow    { background: var(--yellow); }
+.bg-black     { background: var(--black); color: var(--white); }
+.pill         { border-radius: 999px; }
+.bold-border  { border: 2px solid var(--black); }
+.hard-shadow  { box-shadow: 4px 4px 0 var(--black); }
+
+/* ─── Streamlit Toolbar / Header Bar ───────────────────────── */
+[data-testid="stToolbar"],
+[data-testid="stHeader"],
+header[data-testid="stHeader"] {
+  background-color: #FFFDF2 !important;
+  color: #111111 !important;
+}
+
+/* ─── Streamlit Buttons ─────────────────────────────────────── */
+[data-testid="stBaseButton-secondary"],
+[data-testid="stBaseButton-primary"],
+.stButton > button,
+button[kind="secondary"],
+button[kind="primary"] {
+  background-color: #111111 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #111111 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: 3px 3px 0 #F5C518 !important;
+}
+
+.stButton > button:hover,
+[data-testid="stBaseButton-secondary"]:hover,
+[data-testid="stBaseButton-primary"]:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 5px 5px 0 #F5C518 !important;
+}
+
+/* ─── Streamlit File Uploader ───────────────────────────────── */
+[data-testid="stFileUploader"],
+[data-testid="stFileUploaderDropzone"] {
+  background-color: #FFFFFF !important;
+  border: 2.5px dashed #111111 !important;
+  border-radius: 16px !important;
+  color: #111111 !important;
+}
+
+[data-testid="stFileUploaderDropzoneInstructions"] span,
+[data-testid="stFileUploaderDropzoneInstructions"] small,
+[data-testid="stFileUploaderDropzone"] span,
+[data-testid="stFileUploaderDropzone"] small,
+[data-testid="stFileUploaderDropzone"] p {
+  color: #111111 !important;
+}
+
+[data-testid="stFileUploaderDropzone"] button,
+[data-testid="baseButton-secondary"] {
+  background-color: #111111 !important;
+  color: #FFFFFF !important;
+  border-radius: 8px !important;
+  border: 2px solid #111111 !important;
+  box-shadow: 3px 3px 0 #F5C518 !important;
+}
+
+/* ─── Streamlit Selectbox / Dropdown ────────────────────────── */
+[data-testid="stSelectbox"] > div > div,
+[data-baseweb="select"] > div {
+  background-color: #FFFFFF !important;
+  color: #111111 !important;
+  border: 2px solid #111111 !important;
+  border-radius: 8px !important;
+  box-shadow: 2px 2px 0 #111111 !important;
+}
+
+[data-baseweb="select"] span,
+[data-baseweb="select"] div {
+  color: #111111 !important;
+}
+
+[data-baseweb="popover"] ul,
+[data-baseweb="menu"] {
+  background-color: #FFFFFF !important;
+  border: 2px solid #111111 !important;
+  border-radius: 8px !important;
+}
+
+[data-baseweb="menu"] li {
+  color: #111111 !important;
+}
+
+[data-baseweb="menu"] li:hover {
+  background-color: #F5C518 !important;
+  color: #111111 !important;
+}
+
+/* ─── Streamlit Text ────────────────────────────────────────── */
+.stMarkdown p,
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stWidgetLabel"] p,
+[data-testid="stWidgetLabel"] label,
+label {
+  color: #111111 !important;
+}
+
+/* ─── Streamlit Tabs ────────────────────────────────────────── */
+[data-testid="stTabs"] button[role="tab"] {
+  color: #111111 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-weight: 600 !important;
+}
+
+[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
+  border-bottom: 3px solid #F5C518 !important;
+  color: #111111 !important;
+}
