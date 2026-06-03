@@ -296,7 +296,7 @@ Released under the **MIT License** — free to use, modify, and distribute.
 <div align="center">
 
 ### Vedant Kumar
-*Aspiring Data Analyst | MCA @ GGSIPU*
+*Aspiring Data Analyst*
 
 [![Email](https://img.shields.io/badge/Email-vedantkumar0411@gmail.com-D14836?style=flat&logo=gmail&logoColor=white)](mailto:vedantkumar0411@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/vedant-kumar-909b2626a)
